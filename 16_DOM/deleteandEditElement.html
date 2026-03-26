@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color:aliceblue">
+    <ul class="myclass">
+        <li>first item</li>
+    </ul>
+</body>
+<script>
+    function addList(listName){
+        const listItem= document.createElement('li');
+        listItem.innerHTML=`${listName}`
+        document.querySelector('.myclass').append(listItem)
+    }   
+    addList("harsh")
+
+    function optimizedAddList(listName){
+        const listItem= document.createElement('li');
+        listItem.appendChild(document.createTextNode(listName));
+        document.querySelector('.myclass').appendChild(listItem)
+    }
+    optimizedAddList('mohit')
+
+//     Feature 	        .append()	                                .appendChild()
+// Accepted content	    Node objects and DOMString (text strings)	Only Node objects
+
+//EDIT
+const secondLang= document.querySelector('li:nth-child(2)')
+const li = document.createElement('li') //do not write like document.createElement('li').textContent="golu"
+li.textContent="golu"                   //because document.createElement('li') returns the actual element
+secondLang.replaceWith(li)
+
+const secondLang2= document.querySelector('li:first-child')
+secondLang2.outerHTML="<li>sucuefueg</li>"
+
+
+//Remove
+const removeEle= document.querySelector('li:first-child')
+removeEle.remove()
+</script>
+</html>
