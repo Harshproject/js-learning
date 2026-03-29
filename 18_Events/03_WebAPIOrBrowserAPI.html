@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>This is javascript</h1>
+    <button id="stop">stop</button>
+</body>
+<script>
+    const fun = ()=>{
+        console.log("mohit");
+        
+    }
+    const t1=setTimeout(fun,2000)
+    const t2=setInterval(fun,2000)
+    //ClearTimeout() needs reference to the setTimeout
+    //Similarly clearinterval does it for setInterval
+    //for E.G
+    // clearTimeout(t1)
+    // clearInterval(t2)
+    document.querySelector('#stop').addEventListener('click',(e)=>{
+         clearTimeout(t1)
+    })
+
+    //setInterval(fun,1000) ye jaise hi dikhta h thread ko wo use stack me daal deta h uske baad ye function browser ko
+    //bolta h har 1 sec me kch karo, to wo har ek second pe fun callback ko callback queue me daalta h aur
+    //check karta h ki stack empty h ki nahi, agar empty hota h to wo us callback ko stack me daal deta h ab yahi cycle repeat
+    //hoti rehti h
+    //SetInterval aur setTimeout block nahi kara h code ko
+
+</script>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #212121;
+        }
+        form{
+            background-color: #0c0c0c;
+            height: 400px;
+            width: 400px;
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <label for="height">Enter your height: </label>
+        <input type="number" name="height in meters" id="height">
+        <br>
+        <label for="weight">Enter your weight: </label>
+        <input type="number" name="weight in kgs" id="weight">
+        <br><br>
+        <button type="submit">Calculate</button>
+        <br>
+        <p>Your BMI is: <span id="bmi"></span></p>
+    </form>
+</body>
+<script>
+    
+    // height.addEventListener('change',(e)=>{
+    //     e.preventDefault();
+    //     h=e.target.value
+    //     console.log(e.target.value);
+    // })
+    // weight.addEventListener('change',(e)=>{
+    //     e.preventDefault();
+    //     w=e.target.value
+    //     console.log(e.target.value);
+    // })
+    document.querySelector('form').addEventListener('submit',(e)=>{
+        e.preventDefault()
+        
+        const h = document.querySelector('#height').value
+        const w = document.querySelector('#weight').value
+        document.getElementById('bmi').innerText=`${w/(h*h)}`
+        console.log(w/(h*h));
+        
+    })
+</script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #212121;
+            color: aliceblue;
+        }
+        .clock{
+            background-color: orange;
+            border-radius: 5%;
+            height: 40px;
+            width: 100px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Your time is </h1>
+    <span class="clock"></span>
+</body>
+<script>
+    document.querySelector('.clock').textContent=`${(new Date()).toLocaleTimeString()}`
+    setInterval(()=>{
+        document.querySelector('.clock').textContent=`${(new Date()).toLocaleTimeString()}`
+    },1000)
+</script>
+</html>

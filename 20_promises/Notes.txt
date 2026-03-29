@@ -1,0 +1,7 @@
+Promise represents an object which depicts eventual completion
+
+Promises has three states:
+1)Pending : initial request, neither fillfilled or rejected
+2)fulfilled: operation completed successfully
+3)rejected: operation failed
+

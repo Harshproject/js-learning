@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .image{
+            height: 200px;
+            width: 200px;
+            margin: 10px 10px 10px 10px;
+        }
+    </style>
+</head>
+<body style="background-color: #414141;">
+    <ul id="images">
+        <li class="image"><img class="image" id="image1" src="https://images.unsplash.com/photo-1484950763426-56b5bf172dbb?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="hmm"></li>
+        <li class="image"><img class="image" id="image2" src="https://media.istockphoto.com/id/814423752/photo/eye-of-model-with-colorful-art-make-up-close-up.jpg?s=2048x2048&w=is&k=20&c=KTpY1O4d7-EuX-R_GR_44Upc-n9esJOZFpcqvA4CM0E=" alt=""></li>
+        <li class="image"><img class="image" id="image3" src="https://media.istockphoto.com/id/1317323736/photo/a-view-up-into-the-trees-direction-sky.jpg?s=2048x2048&w=is&k=20&c=oo7SGfjmPkybpqoNccDsYWG-4uxSmn8G79NiLA1mNvs=" alt=""></li>
+    </ul>
+    </body>
+<script>
+
+    // Read about these
+    // type(click, submit etc), timestamp, defaultprevented
+    // target, toElement, srcElement, currentTarget
+    // ClientX, Clienty, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keycode
+
+
+    //Bubbling up
+    // document.getElementById('images').addEventListener('click',(e)=>{
+    //     alert('background')
+    //     console.log('parent');
+        
+    // },false)   //Ye by default bhi false hi hota h
+    // document.getElementById('image2').addEventListener('click',(e)=>{
+    //     alert('image 2')
+    //     console.log('child');
+        
+    // })
+
+    //Now there is a concept called bubbling up which means the flow of events will go from child to parents
+    //just like here above child will get print first and then parent
+
+
+    //capturing up
+    // document.getElementById('images').addEventListener('click',(e)=>{
+    //     alert('background')
+    //     console.log('parent');
+        
+    // },true)   //Ye by default bhi false hi hota h
+    // document.getElementById('image2').addEventListener('click',(e)=>{
+    //     alert('image 2')
+    //     console.log('child');
+        
+    // },true)
+
+    //Yaha flow ulta hohjaega
+
+    //Ab agar manlo ki propagation chahiye hi nhi
+    // document.getElementById('images').addEventListener('click',(e)=>{
+    //     alert('background')
+    //     console.log('parent');
+        
+    // })  
+    // document.getElementById('image2').addEventListener('click',(e)=>{
+    //     alert('image 2')
+    //     console.log('child');
+    //     e.stopPropagation()  //Ye propagation rok dega
+    // }) 
+
+
+    // Yaha pe bubbling up ka concept use hota h agar maine image ke section pe click kiya to wo e.target = image tag
+    // Aur agar image ke bahar khaali li pe click kiya to e.target= li 
+    document.querySelector('#images').addEventListener('click',(e)=>{
+        console.log(e.target.parentNode);
+        if(e.target.tagName=='IMG')     //To select the image only
+        e.target.parentNode.remove()
+        
+    })
+</script>
+</html>
