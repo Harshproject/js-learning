@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>Click</button>
+</body>
+<script>
+    // class React{
+    //     constructor(arg){
+    //         this.library='library'
+    //         this.server='server'
+    //         this.arg=arg
+            
+    //         document
+    //         .querySelector('button')
+    //         .addEventListener('click',this.handleClick)   //Here we are just passing the function and not the object context
+    //     }   
+
+    //     handleClick() {
+    //         console.log(this);
+            
+            
+    //     }
+    // }
+    // const obj= new React("pehla")
+    // const obj2 = new React("dusra")
+
+     class React{
+        constructor(arg){
+            this.library='library'
+            this.server='server'
+            this.arg=arg
+            
+            document
+            .querySelector('button')
+            .addEventListener('click', this.handleClick.bind(this))   //Here we are passing the object context
+        }   
+
+        handleClick() {
+            console.log(this); //React {library: 'library', server: 'server', arg: 'pehla'}
+            
+            
+        }
+    }
+    const obj= new React("pehla")
+    const obj2 = new React("dusra")
+
+
+</script>
+</html>
